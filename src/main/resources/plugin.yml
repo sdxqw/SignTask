@@ -1,0 +1,10 @@
+name: SignTask
+version: '${project.version}'
+main: org.xnotro.signtask.Core
+api-version: 1.18
+authors: [ xnotro ]
+description: Sign Task
+permissions:
+  signtask.reward:
+    description: with this permissions you can get rewards
+    default: op

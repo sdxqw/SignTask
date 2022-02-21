@@ -1,0 +1,17 @@
+# REWARDS CONFIG
+rewards:
+  # PUT HERE THE BLOCKS NAME LIKE THAT:
+  reward1: "diamond"
+  reward2: "acacia_boat"
+  reward3: "armor_stand"
+  reward4: "bow"
+  reward5: "egg"
+
+  # PUT HERE WHAT PEOPLE SHOULD WRITE TO GET IT!
+  signText1: "nice"
+  signText2: "notro"
+  signText3: "papi"
+  signText4: "uwu"
+  signText5: "no"
+
+
