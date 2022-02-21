@@ -1,5 +1,6 @@
 package org.xnotro.signtask;
 
+import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -13,6 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class Core extends JavaPlugin implements Listener {
@@ -44,23 +46,26 @@ public class Core extends JavaPlugin implements Listener {
         String signText4 = getConfig().getString("rewards.signText4");
         String signText5 = getConfig().getString("rewards.signText5");
 
+
         if (blockState instanceof Sign) {
             if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 Sign sign = (Sign) blockState;
+                PlainTextComponentSerializer serializer = PlainTextComponentSerializer.plainText();
+                List<String> signLines = sign.lines().stream().map( serializer :: serialize ).toList();
                 if (player.hasPermission("signtask.reward")) {
-                    if (sign.getLine(0).equalsIgnoreCase(signText1)) {
+                    if (signLines.get(0).equalsIgnoreCase(signText1)) {
                         ItemStack re1 = new ItemStack(Material.valueOf(reward1.toUpperCase()));
                         player.getInventory().addItem(re1);
-                    } else if (sign.getLine(0).equalsIgnoreCase(signText2)) {
+                    } else if (signLines.get(0).equalsIgnoreCase(signText2)) {
                         ItemStack re2 = new ItemStack(Material.valueOf(reward2.toUpperCase()));
                         player.getInventory().addItem(re2);
-                    } else if (sign.getLine(0).equalsIgnoreCase(signText3)) {
+                    } else if (signLines.get(0).equalsIgnoreCase(signText3)) {
                         ItemStack re3 = new ItemStack(Material.valueOf(reward3.toUpperCase()));
                         player.getInventory().addItem(re3);
-                    } else if (sign.getLine(0).equalsIgnoreCase(signText4)) {
+                    } else if (signLines.get(0).equalsIgnoreCase(signText4)) {
                         ItemStack re4 = new ItemStack(Material.valueOf(reward4.toUpperCase()));
                         player.getInventory().addItem(re4);
-                    } else if (sign.getLine(0).equalsIgnoreCase(signText5)) {
+                    } else if (signLines.get(0).equalsIgnoreCase(signText5)) {
                         ItemStack re5 = new ItemStack(Material.valueOf(reward5.toUpperCase()));
                         player.getInventory().addItem(re5);
                     }
