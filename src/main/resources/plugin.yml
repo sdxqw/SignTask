@@ -8,3 +8,6 @@ permissions:
   signtask.reward:
     description: with this permissions you can get rewards
     default: op
+  signtask.command:
+    description: with this permissions you can create rewards
+    default: op
