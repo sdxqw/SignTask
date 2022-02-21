@@ -46,7 +46,7 @@ Want to help improve Sign Task? You contribute to the project by doing:
 
 ## TODO
 
-* Change getLine to line (but dont understand how lol)
+* Change getLine to line (DONE) [Thanks to Gator#3175 for Help!]
 
 ---
 <h6 align="center">
